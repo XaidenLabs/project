@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
+    "start": "node api.js && expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
-    "build": "echo 'No build step required'"
+    "build": "node api.js && echo 'No build step required'"
   },
   "dependencies": {
     "@adsesugh/monnify-react-native": "^1.0.4",

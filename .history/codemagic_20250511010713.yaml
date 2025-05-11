@@ -1,0 +1,22 @@
+workflows:
+  android-build:
+    name: Android APK Build
+    environment:
+      groups:
+        - expo_credentials
+      vars:
+        JAVA_HOME: "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home" # or temurin-11 if needed
+    triggering:
+      events:
+        - push
+    scripts:
+      - npm install -g eas-cli
+      - npm install
+
+      # Ensure gradlew is executable (optional since Codemagic usually handles this)
+      - chmod +x android/gradlew
+      
+      # Build with EAS
+      - eas build --platform android --profile preview --non-interactive
+    artifacts:
+      - build/**/*.apk
