@@ -4,9 +4,9 @@
   "main": "webhook.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node webhook.js",
-    "build": "echo 'No build step necessary'",
-    "start": "node webhook.js"
+    "dev": "node init && node webhook.js",
+    "build": "node init && echo 'No build step necessary'",
+    "start": "node init && node webhook.js"
   },
   "keywords": [],
   "author": "",
